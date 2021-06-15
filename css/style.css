@@ -1,0 +1,272 @@
+/*
+    IMPORTING REQUIRED FONTS
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+/*
+    UTILITY STYLING
+*/
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #191b1d;
+    font-family: 'Roboto Slab', serif;
+    color: #fff;
+}
+.hidden {
+    display: none;
+}
+.text-success {
+    color: rgb(109, 230, 125) !important;
+}
+
+.text-warning {
+    color: rgb(255, 234, 112) !important;
+}
+
+.text-danger {
+    color: rgb(255, 115, 115) !important;
+}
+/*
+    HEADER
+*/
+header {
+    padding-block-start: 1rem;
+}
+/*Top-Text*/
+header > h5 {
+    text-align: center;
+    color: #ffffffd8;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+/*Statistics container*/
+.row {
+    --bs-gutter-x: 0;
+}
+/*Statistics Cells*/
+header .col-3 {
+    padding: 2rem;
+    text-align: center;
+}
+header .col-3 h3 {
+    margin: 0;
+    cursor: default;
+}
+header .col-3 p {
+    font-weight: 500;
+    opacity: 75%;
+    font-size: 1.2rem;
+    margin: 0;
+    cursor: default;
+}
+/*Confirmed Cell*/
+.confirmed-cell {
+    background: linear-gradient(
+        #0080ff00,
+        rgba(0, 128, 255, 22%) 80%,
+        #0080ff00
+    );
+    color: rgb(85, 153, 248);
+}
+.confirmed-cell:hover {
+    background: linear-gradient(
+        #0080ff00,
+        rgba(0, 128, 255, 45%) 80%,
+        #0080ff00
+    );
+}
+/*Recovered Cell*/
+.recovered-cell {
+    background: linear-gradient(
+        #0080ff00,
+        rgba(230, 255, 0, 22%) 80%,
+        #0080ff00
+    );
+    color: rgb(203, 199, 91);
+}
+.recovered-cell:hover {
+    background: linear-gradient(
+        #0080ff00,
+        rgba(230, 255, 0, 45%) 80%,
+        #0080ff00
+    );
+}
+/*Vaccinated Cell*/
+.vaccinated-cell {
+    background: linear-gradient(
+        #0080ff00,
+        rgba(0, 255, 85, 22%) 80%,
+        #0080ff00
+    );
+    color: rgb(109, 230, 125);
+}
+.vaccinated-cell:hover {
+    background: linear-gradient(
+        #0080ff00,
+        rgba(0, 255, 85, 45%) 80%,
+        #0080ff00
+    );
+}
+
+/*deceased Cell*/
+.deceased-cell {
+    background: linear-gradient(#0080ff00, rgba(255, 0, 0, 22%) 80%, #0080ff00);
+    color: rgb(255, 97, 97);
+}
+.deceased-cell:hover {
+    background: linear-gradient(#0080ff00, rgba(255, 0, 0, 45%) 80%, #0080ff00);
+}
+/*
+    BODY
+*/
+/*Hero Image*/
+.hero {
+    width: 100%;
+    height: 75vh;
+    background-image: url(./images/hero-image.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Black color Overlay to improve readability*/
+.hero .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #080913cb;
+    z-index: 0;
+}
+/*Container for text elements*/
+.text-container {
+    z-index: 1;
+}
+h1,
+p,
+.attribute + h4 {
+    margin-block: 0;
+    text-align: center;
+}
+.text-container h1 {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+}
+.text-container p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    opacity: 50%;
+}
+
+/*Container for remaining Data Visualization*/
+.data-container {
+    width: 85%;
+    margin: auto;
+    padding-block: 2rem;
+}
+/*Heading*/
+.data-container > h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.data-container > p {
+    opacity: 55%;
+    font-weight: 400;
+}
+/* Dropdown Selection and Button*/
+.input {
+    margin-block-start: 2rem;
+}
+select {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-family: 'Segoe UI';
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 50%;
+    margin: auto;
+}
+button {
+    margin: auto;
+    width: 50%;
+}
+/*State Card*/
+.stateCard {
+    margin-block: 3rem;
+    padding: 1rem 5rem;
+    background: linear-gradient(rgba(82, 110, 159, 60%), rgba(41, 55, 80, 60%));
+    border-radius: 1rem;
+}
+#stateName {
+    font-size: 3rem;
+}
+.stat-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.stat-item {
+    padding-block: 1rem;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+.stat-item:hover {
+    background-color: #77f3;
+}
+.attribute {
+    font-size: 1rem;
+    color: rgb(148, 194, 255);
+}
+
+/*
+    CHARTS
+*/
+/*Container for all charts*/
+.chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/*Common Chart style*/
+.chart {
+    height: fit-content;
+    width: 100%;
+    background-color: #fff1;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-block: 1rem;
+}
+.chart > h4 {
+    margin: 0;
+}
+/*Color schemes for charts*/
+.chart-confirmed {
+    background: linear-gradient(rgba(51, 100, 184, 35%), rgba(6, 28, 67, 35%));
+    color: rgb(86, 177, 223);
+}
+.chart-recovered {
+    background: linear-gradient(rgba(184, 184, 51, 35%), rgba(67, 55, 6, 35%));
+    color: rgb(216, 223, 124);
+}
+.chart-vaccinated {
+    background: linear-gradient(rgba(51, 184, 91, 35%), rgba(6, 67, 14, 35%));
+    color: rgb(119, 211, 122);
+}
+.chart-deceased {
+    background: linear-gradient(rgba(201, 24, 24, 35%), rgba(67, 6, 6, 35%));
+    color: rgb(231, 98, 98);
+}
+
+/*
+    Footer
+*/
+footer {
+    background: linear-gradient(rgb(24, 35, 62, 100%), rgba(24, 35, 62, 0));
+    padding: 1rem;
+}
+footer p {
+    color: rgba(255, 255, 255, 65%);
+}
