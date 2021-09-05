@@ -5,7 +5,7 @@
 
 //API Endpoint
 //cors-anywhere is a proxy server workaround for CORS policy restricting the data
-var APIURL = "http://data.covid19india.org/v4/min/timeseries.min.json";
+var APIURL = "https://data.covid19india.org/v4/min/timeseries.min.json";
 //ID Variables for canvases
 var cID = undefined;
 var vID = undefined;
