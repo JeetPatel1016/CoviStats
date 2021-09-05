@@ -2,8 +2,8 @@
     IMPORTING REQUIRED FONTS
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 /*
     UTILITY STYLING
 */
@@ -11,8 +11,12 @@ body {
     margin: 0;
     min-height: 100vh;
     background: #191b1d;
-    font-family: 'Roboto Slab', serif;
+    font-family: "Roboto Slab", serif;
     color: #fff;
+}
+p,
+h4 {
+    cursor: default;
 }
 .hidden {
     display: none;
@@ -121,45 +125,48 @@ header .col-3 p {
 /*
     BODY
 */
-/*Hero Image*/
-.hero {
-    width: 100%;
-    height: 75vh;
-    background-image: url(./images/hero-image.jpg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/*Black color Overlay to improve readability*/
-.hero .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #080913cb;
-    z-index: 0;
-}
-/*Container for text elements*/
-.text-container {
-    z-index: 1;
-}
 h1,
 p,
 .attribute + h4 {
     margin-block: 0;
     text-align: center;
 }
+/*Hero Section*/
+.hero {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+}
+/*Container for text elements*/
+.text-container {
+    width: 40%;
+    padding-inline: 5rem;
+}
 .text-container h1 {
+    text-align: justify;
     font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 3.5rem;
 }
 .text-container p {
+    text-align: justify;
     font-size: 1.2rem;
     font-weight: 700;
     opacity: 50%;
+}
+/*Image Container*/
+.image {
+    background: url(images/hero-image.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 60%;
+}
+.image .overlay {
+    background: linear-gradient(to right, #191b1d, #191b1d00 50%);
+    width: 100%;
+    height: 100%;
 }
 
 /*Container for remaining Data Visualization*/
@@ -170,7 +177,7 @@ p,
 }
 /*Heading*/
 .data-container > h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }
 .data-container > p {
@@ -184,7 +191,7 @@ p,
 select {
     display: block;
     padding: 0.5rem 1rem;
-    font-family: 'Segoe UI';
+    font-family: "Segoe UI";
     border-radius: 5px;
     font-size: 1rem;
     width: 50%;
