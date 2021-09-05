@@ -157,7 +157,7 @@ p,
 }
 /*Image Container*/
 .image {
-    background: url(images/hero-image.jpg);
+    background: url(./images/hero-image.jpg);
     background-size: cover;
     background-position: center;
     height: 100%;
