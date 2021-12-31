@@ -22,7 +22,7 @@ var elements = {
     vaccineOne: document.getElementById("vaccineOne"),
     vaccineTwo: document.getElementById("vaccineTwo"),
     rNumber: document.getElementById("rNumber"),
-    transmission: document.getElementById("transmission"),
+    transmission: document.getElementById("severity"),
     lockdown: document.getElementById("lockdown"),
 };
 
@@ -47,10 +47,11 @@ function getStateDetails(state) {
     } else {
         $.getJSON(APIURL, function (data) {
             //Getting Today and Yesterday's Date for R-Index Evaluation
-            var today = new Date();
-            today.setDate(today.getDate() - 1);
-            var yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 2);
+            //Hard coding last 2 dates due to discontinuity of API
+            // var today = new Date();
+            // today.setDate(today.getDate() - 1);
+            var today = new Date(2021, 9, 31);
+            var yesterday = new Date(2021, 9, 30);
 
             // Storing the Detail object from the Response data into a variable
             var details = data[state]["dates"][getISODate(today)]["total"];
@@ -303,7 +304,13 @@ function getAssessment(todayCases, yesterdayCases) {
     var lockdown;
     var color;
     var obj = {};
-
+    if (!todayCases || !yesterdayCases) {
+        obj.rNumber = "Data Unavailable";
+        obj.lockdown = "-";
+        obj.transmission = "-";
+        obj.color = "text-danger";
+        return obj;
+    }
     //Evaluating Requirement
     var rNumber = todayCases / yesterdayCases;
     if (rNumber < 1) {
@@ -340,14 +347,17 @@ $(document).ready(function () {
 
     //Data being fetched from the API and displayed into header Columns
     $.getJSON(APIURL, function (data) {
-        var today = new Date();
-        today.setDate(today.getDate() - 1);
-        var obj = data["TT"]["dates"][getISODate(today)]["delta7"];
+        // Since API has stopped updating data since 2021-10-31, we will display the results of the same.
+        // var today = new Date();
+        // today.setDate(today.getDate() - 1);
+        var today = new Date(2021, 9, 31);
 
-        nationGroups.confirmed.innerHTML = decimalConvert(obj.confirmed);
-        nationGroups.recovered.innerHTML = decimalConvert(obj.recovered);
-        nationGroups.vaccinated.innerHTML = decimalConvert(obj.vaccinated1);
-        nationGroups.deceased.innerHTML = decimalConvert(obj.deceased);
+        var obj = data["TT"]["dates"][getISODate(today)]["delta"];
+
+        nationGroups.confirmed.innerText = decimalConvert(obj.confirmed);
+        nationGroups.recovered.innerText = decimalConvert(obj.recovered);
+        nationGroups.vaccinated.innerText = decimalConvert(obj.vaccinated1);
+        nationGroups.deceased.innerText = decimalConvert(obj.deceased);
     });
 });
 /* 
